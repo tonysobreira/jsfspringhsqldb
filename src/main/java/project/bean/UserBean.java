@@ -21,6 +21,7 @@ public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private List<User> userList;
+	private List<User> userList2;
 	
 	private List<User> userListJPA;
 
@@ -31,7 +32,8 @@ public class UserBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-//		this.userList = userService.getUserList();
+		this.userList2 = userService.getUserList();
+		
 		userList = userService.findAll();
 		
 		userListJPA = userService.findAllJPA();
@@ -121,6 +123,14 @@ public class UserBean implements Serializable {
 
 	public void setUserListJPA(List<User> userListJPA) {
 		this.userListJPA = userListJPA;
+	}
+
+	public List<User> getUserList2() {
+		return userList2;
+	}
+
+	public void setUserList2(List<User> userList2) {
+		this.userList2 = userList2;
 	}
 
 }
